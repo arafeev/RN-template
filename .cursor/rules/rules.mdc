@@ -1,0 +1,78 @@
+---
+description: You are an AI assistant tasked with developing a game simulator based on the rules provided below. Your goal is to generate working code that implements the main game mechanics.
+globs: 
+---
+
+# Your rule content
+cat > /Users/artemarafeev/Desktop/RN-template-main/.cursor/rules/rules.mdc << 'EOL'
+# Game Development Rules for Mafia Card Game
+
+## Core Game Mechanics
+
+### Player Turn Structure
+1. Draw Phase:
+   - Player draws 2 cards from deck at turn start
+
+2. Action Phase:
+   - Can play "Crossfire" for attack
+   - Target player can defend with "Barricade"
+   - Successful attacks deal 1 life point damage
+   - Other players can intervene with "Dirty Connections" or "Showdown"
+
+3. Discard Phase:
+   - Hand size must not exceed current life points
+
+### Combat and Reactions
+- "Explosive Case" and distance modifiers affect player positions
+- All position updates must be synchronized across clients
+
+### Special Scenarios
+1. Last Life Point Loss:
+   - Player can use "Beer" card to recover
+   - Otherwise, player is eliminated and role revealed
+
+2. Don's Penalties:
+   - If Don kills Capo/FBI Agent: Discard hand and equipment
+
+### Bonus Systems
+- Kill FBI Agent: Draw 3 cards
+- Character-specific abilities (e.g., Antonio "The Fist")
+
+### Victory Conditions
+- Mafia (Don/Capos): Win by eliminating all FBI agents
+- FBI Agents: Win by eliminating Don
+- Traitor: Must be last player standing
+
+## Strategic Elements
+1. Card Management:
+   - Balance attack/defense cards
+   - Strategic use of "Barricade" and "Bribe"
+
+2. Distance Mechanics:
+   - Monitor player positions
+   - Adapt strategy based on range
+
+3. Role Secrecy:
+   - Only Don's role is public
+   - Analyze opponent actions
+   - Maintain role ambiguity
+
+4. Tactical Balance:
+   - Consider defensive accumulation vs aggressive play
+   - Watch for opponent alliances
+
+## Implementation Requirements
+- Initialize players and hands
+- Implement card mechanics
+- Handle attack resolution
+- Manage life points and interventions
+- Process discard phase
+- Handle special scenarios
+- Track victory conditions
+- Use OOP principles
+- Include detailed comments
+
+
+
+- You can @ files here
+- You can use markdown but dont have to

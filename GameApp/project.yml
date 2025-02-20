@@ -1,0 +1,57 @@
+name: GameApp
+options:
+  bundleIdPrefix: com.arafeev0507.swiftgame
+  deploymentTarget:
+    iOS: 15.0
+
+targets:
+  GameApp:
+    type: application
+    platform: iOS
+    sources:
+      - GameApp
+    resources:
+      - path: GameApp/GoogleService-Info.plist
+    settings:
+      base:
+        INFOPLIST_FILE: GameApp/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.arafeev0507.swiftgame.gameapp
+        CODE_SIGN_ENTITLEMENTS: GameApp/GameApp.entitlements
+    entitlements:
+      path: GameApp/GameApp.entitlements
+      properties:
+        com.apple.security.app-sandbox: false
+        com.apple.security.files.user-selected.read-write: true
+    info:
+      path: GameApp/Info.plist
+      properties:
+        CFBundleName: GameApp
+        CFBundleDisplayName: Game App
+        CFBundleShortVersionString: 1.0.0
+        CFBundleVersion: 1
+        UILaunchStoryboardName: LaunchScreen
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+          UISceneConfigurations:
+            UIWindowSceneSessionRoleApplication:
+              - UISceneConfigurationName: Default Configuration
+                UISceneDelegateClassName: $(PRODUCT_MODULE_NAME).SceneDelegate
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        UIRequiresFullScreen: true
+        
+  GameAppTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - GameAppTests
+    dependencies:
+      - target: GameApp
+        
+  GameAppUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - GameAppUITests
+    dependencies:
+      - target: GameApp 

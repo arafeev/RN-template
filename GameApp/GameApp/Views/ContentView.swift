@@ -6,7 +6,7 @@ struct ContentView: View {
     var body: some View {
         Group {
             if authViewModel.isAuthenticated {
-                MainTabView()
+                GameLobbyView(authViewModel: authViewModel)
             } else {
                 AuthenticationView()
             }
@@ -14,35 +14,7 @@ struct ContentView: View {
     }
 }
 
-struct MainTabView: View {
-    var body: some View {
-        TabView {
-            GameLobbyView()
-                .tabItem {
-                    Label("Games", systemImage: "gamecontroller")
-                }
-            
-            FriendsView()
-                .tabItem {
-                    Label("Friends", systemImage: "person.2")
-                }
-            
-            ProfileView()
-                .tabItem {
-                    Label("Profile", systemImage: "person.circle")
-                }
-            
-            SettingsView()
-                .tabItem {
-                    Label("Settings", systemImage: "gear")
-                }
-        }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-            .environmentObject(AuthViewModel())
-    }
+#Preview {
+    ContentView()
+        .environmentObject(AuthViewModel())
 } 
